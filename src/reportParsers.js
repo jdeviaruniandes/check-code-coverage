@@ -21,22 +21,11 @@ class CloverFileParser {
             const parsedXml = this.parseXmlFile(filename);
 
             const coverageNode = this.getParsedXmlNode(parsedXml, 'coverage');
-            const projectNode = this.getParsedXmlNode(coverageNode, 'project');
-            const metricsNode = this.getParsedXmlNode(projectNode, 'metrics');
 
             // The following code is based on the formula for calculating clover coverage percentage found here:
             // https://confluence.atlassian.com/clover/how-are-the-clover-coverage-percentages-calculated-79986990.html
-            const coveredConditionals = this.getParsedXmlIntegerAttribute(metricsNode, 'coveredconditionals');
-            const coveredStatements = this.getParsedXmlIntegerAttribute(metricsNode, 'coveredstatements');
-            const coveredMethods = this.getParsedXmlIntegerAttribute(metricsNode, 'coveredmethods');
-            const conditionals = this.getParsedXmlIntegerAttribute(metricsNode, 'conditionals');
-            const statements = this.getParsedXmlIntegerAttribute(metricsNode, 'statements');
-            const methods = this.getParsedXmlIntegerAttribute(metricsNode, 'methods');
-
-            const coveredSum = coveredConditionals + coveredStatements + coveredMethods;
-            const codeSum = conditionals + statements + methods;
-
-            const codeCoveragePercentage = codeSum > 0 ? Math.floor(100.0 * coveredSum / codeSum) : 0;
+            const linesRate = this.getParsedXmlIntegerAttribute(coverageNode, 'line-rate');
+            const codeCoveragePercentage = Math.floor(100.0 * linesRate);
 
             return {
                 CodeCoveragePercentage: codeCoveragePercentage,

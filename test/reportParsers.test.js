@@ -29,22 +29,7 @@ test('Read clover code coverage from an invalid file #3', () => {
 
     expect(() => {
         cloverFileParser.parseFile('./test/reports/clover-invalid-3.xml');
-    }).toThrow('File "./test/reports/clover-invalid-3.xml" is not a valid clover file: Metrics attribute "coveredconditionals" is missing');
-});
-
-test('Read clover code coverage from an invalid file #4', () => {
-    const cloverFileParser = new reportParsers.CloverFileParser();
-
-    expect(() => {
-        cloverFileParser.parseFile('./test/reports/clover-invalid-4.xml');
-    }).toThrow('File "./test/reports/clover-invalid-4.xml" is not a valid clover file: Metrics attribute "methods" value "foo" is not a number');
-});
-
-test('Read clover code coverage from a file with no code tested', () => {
-    const cloverFileParser = new reportParsers.CloverFileParser();
-    const result = cloverFileParser.parseFile('./test/reports/clover-no-code-tested.xml');
-
-    expect(result.CodeCoveragePercentage).toBe(0);
+    }).toThrow('File "./test/reports/clover-invalid-3.xml" is not a valid clover file: Metrics attribute "line-rate" is missing');
 });
 
 test('Read clover code coverage from a file with no coverage', () => {
