@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themichaelhall/check-code-coverage.git"
+    "url": "git+https://github.com/jdeviaruniandes/check-code-coverage.git"
   },
   "keywords": [
     "code",
@@ -19,7 +19,7 @@
     "action"
   ],
   "author": "Michael Hall",
-  "homepage": "https://github.com/themichaelhall/check-code-coverage",
+  "homepage": "https://github.com/jdeviaruniandes/check-code-coverage",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0",
