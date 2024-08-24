@@ -1,4 +1,4 @@
-name: 'Check code coverage'
+name: 'Check code coverage from coverage.xml file with coverage line-rate'
 description: 'This GitHub action reads a code coverage report and fails if the actual code coverage is below a specified threshold.'
 branding:
   color: 'blue'
